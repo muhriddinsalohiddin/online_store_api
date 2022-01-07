@@ -13,7 +13,7 @@ lint: ## Run golangci-lint with printing to stdout
 
 swag-gen:
 	echo ${REGISTRY}
-	swag init -g api/router.go -o api/docs
+	swag init -g api/routers.go -o api/docs
 swag-get:
 	go get -u github.com/swaggo/swag/cmd/swag
 update-submodule:

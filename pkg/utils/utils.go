@@ -9,9 +9,10 @@ type QueryParams struct {
 	Filters  map[string]string
 	Page     int64
 	Limit    int64
-	Time     string
 	Ordering []string
 	Search   string
+	Author   string
+	Category string
 }
 
 func ParseQueryParams(queryParams map[string][]string) (*QueryParams, []string) {
@@ -19,9 +20,10 @@ func ParseQueryParams(queryParams map[string][]string) (*QueryParams, []string) 
 		Filters:  make(map[string]string),
 		Page:     1,
 		Limit:    10,
-		Time:     "",
 		Ordering: []string{},
 		Search:   "",
+		Author: "",
+		Category: "",
 	}
 	var errStr []string
 	var err error
@@ -52,9 +54,13 @@ func ParseQueryParams(queryParams map[string][]string) (*QueryParams, []string) 
 			params.Ordering = strings.Split(value[0], ",")
 			continue
 		}
-		if key == "time" {
-			params.Time = value[0]
-			continue
+
+		if key == "author" {
+			params.Author = value[0]
+		}
+
+		if key == "category" {
+			params.Category = value[0]
 		}
 		params.Filters[key] = value[0]
 	}
