@@ -12,7 +12,6 @@ import (
 	"google.golang.org/protobuf/encoding/protojson"
 )
 
-
 // CreateCategory ...
 // @Summary CreateCategory
 // @Description This API for creating a new category
@@ -53,6 +52,18 @@ func (h *handlerV1) CreateCategory(c *gin.Context) {
 	c.JSON(http.StatusCreated, resp)
 }
 
+// UpdateCategory ...
+// @Summary UpdateCategory
+// @Description This API for updating category
+// @Tags category
+// @Accept  json
+// @Produce  json
+// @Param id path string true "ID"
+// @Param Category request body models.Category true "categoryUpdateRequest"
+// @Success 200
+// @Failure 400 {object} models.StandardErrorModel
+// @Failure 500 {object} models.StandardErrorModel
+// @Router /v1/categories/{id} [put]
 func (h *handlerV1) UpdateCategory(c *gin.Context) {
 	var (
 		body        pb.Category
@@ -82,6 +93,18 @@ func (h *handlerV1) UpdateCategory(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, resp)
 }
+
+// GetCategoryById ...
+// @Summary GetCategoryById
+// @Description This API for getting category detail
+// @Tags category
+// @Accept  json
+// @Produce  json
+// @Param id path string true "ID"
+// @Success 200 {object} models.Category
+// @Failure 400 {object} models.StandardErrorModel
+// @Failure 500 {object} models.StandardErrorModel
+// @Router /v1/categories/{id} [get]
 func (h *handlerV1) GetCategoryById(c *gin.Context) {
 	var jspbMarshal protojson.MarshalOptions
 	jspbMarshal.UseProtoNames = true
@@ -100,6 +123,18 @@ func (h *handlerV1) GetCategoryById(c *gin.Context) {
 	}
 	c.JSON(http.StatusCreated, resp)
 }
+
+// DeleteCategoryById ...
+// @Summary DeleteCategoryById
+// @Description This API for deleting category
+// @Tags category
+// @Accept  json
+// @Produce  json
+// @Param id path string true "ID"
+// @Success 200
+// @Failure 400 {object} models.StandardErrorModel
+// @Failure 500 {object} models.StandardErrorModel
+// @Router /v1/categories/{id} [delete]
 func (h *handlerV1) DeleteCategoryById(c *gin.Context) {
 	var jspbMarshal protojson.MarshalOptions
 	jspbMarshal.UseProtoNames = true
@@ -118,6 +153,19 @@ func (h *handlerV1) DeleteCategoryById(c *gin.Context) {
 	}
 	c.JSON(http.StatusCreated, resp)
 }
+
+// ListCategories ...
+// @Summary ListCategories
+// @Description This API for getting list of categories
+// @Tags category
+// @Accept  json
+// @Produce  json
+// @Param page query string false "Page"
+// @Param limit query string false "Limit"
+// @Success 200 {object} models.ListCategories
+// @Failure 400 {object} models.StandardErrorModel
+// @Failure 500 {object} models.StandardErrorModel
+// @Router /v1/categories [get]
 func (h *handlerV1) ListCategories(c *gin.Context) {
 	queryParams := c.Request.URL.Query()
 
