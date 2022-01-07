@@ -1,4 +1,9 @@
 definitions:
+  models.Author:
+    properties:
+      name:
+        type: string
+    type: object
   models.Book:
     properties:
       author_id:
@@ -25,6 +30,13 @@ definitions:
     properties:
       message:
         type: string
+    type: object
+  models.ListAuthors:
+    properties:
+      authors:
+        items:
+          $ref: '#/definitions/models.Author'
+        type: array
     type: object
   models.ListBooks:
     properties:
@@ -57,6 +69,155 @@ definitions:
 info:
   contact: {}
 paths:
+  /v1/authors:
+    get:
+      consumes:
+      - application/json
+      description: This API for getting list of authors
+      parameters:
+      - description: Page
+        in: query
+        name: page
+        type: string
+      - description: Limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ListAuthors'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.StandardErrorModel'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.StandardErrorModel'
+      summary: ListAuthors
+      tags:
+      - author
+  /v1/authors/:
+    post:
+      consumes:
+      - application/json
+      description: This API for creating a new author
+      parameters:
+      - description: authorCreateRequest
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/models.Author'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Author'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.StandardErrorModel'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.StandardErrorModel'
+      summary: CreateAuthor
+      tags:
+      - author
+  /v1/authors/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: This API for deleting author
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.StandardErrorModel'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.StandardErrorModel'
+      summary: DeleteAuthor
+      tags:
+      - author
+    get:
+      consumes:
+      - application/json
+      description: This API for getting author detail
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Author'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.StandardErrorModel'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.StandardErrorModel'
+      summary: GetAuthor
+      tags:
+      - author
+    put:
+      consumes:
+      - application/json
+      description: This API for updating author
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: authorUpdateRequest
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/models.Author'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.StandardErrorModel'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.StandardErrorModel'
+      summary: UpdateAuthor
+      tags:
+      - author
   /v1/books:
     get:
       consumes:
