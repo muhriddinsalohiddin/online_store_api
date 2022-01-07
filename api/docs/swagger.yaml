@@ -10,13 +10,7 @@ definitions:
         type: string
       category_id:
         type: string
-      created_at:
-        type: string
-      id:
-        type: string
       name:
-        type: string
-      updated_at:
         type: string
     type: object
   models.Category:
@@ -62,8 +56,6 @@ definitions:
       author_id:
         type: string
       name:
-        type: string
-      updated_at:
         type: string
     type: object
 info:
