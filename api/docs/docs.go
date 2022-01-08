@@ -958,16 +958,7 @@ var doc = `{
                 "category_id": {
                     "type": "string"
                 },
-                "created_at": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
                 "name": {
-                    "type": "string"
-                },
-                "updated_at": {
                     "type": "string"
                 }
             }
@@ -1061,9 +1052,6 @@ var doc = `{
                     "type": "string"
                 },
                 "name": {
-                    "type": "string"
-                },
-                "updated_at": {
                     "type": "string"
                 }
             }

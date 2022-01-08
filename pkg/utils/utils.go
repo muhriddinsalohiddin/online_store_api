@@ -22,8 +22,6 @@ func ParseQueryParams(queryParams map[string][]string) (*QueryParams, []string) 
 		Limit:    10,
 		Ordering: []string{},
 		Search:   "",
-		Author: "",
-		Category: "",
 	}
 	var errStr []string
 	var err error
