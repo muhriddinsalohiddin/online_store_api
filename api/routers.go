@@ -33,25 +33,31 @@ func New(option Option) *gin.Engine {
 	})
 
 	api := router.Group("/v1")
-// Books
+	// Books
 	api.POST("/books", handlerV1.CreateBook)
 	api.GET("/books/:id", handlerV1.GetBookById)
 	api.PUT("/books/:id", handlerV1.UpdateBook)
 	api.DELETE("books/:id", handlerV1.DeleteBook)
 	api.GET("/books", handlerV1.ListBooks)
-// Categories
+	// Categories
 	api.POST("/categories", handlerV1.CreateCategory)
 	api.GET("/categories/:id", handlerV1.GetCategoryById)
 	api.PUT("/categories/:id", handlerV1.UpdateCategory)
 	api.DELETE("categories/:id", handlerV1.DeleteCategoryById)
 	api.GET("/categories", handlerV1.ListCategories)
-// Authors
+	// Authors
 	api.POST("/authors", handlerV1.CreateAuthor)
 	api.GET("/authors/:id", handlerV1.GetAuthor)
 	api.PUT("/authors/:id", handlerV1.UpdateAuthor)
 	api.DELETE("authors/:id", handlerV1.DeleteAuthor)
 	api.GET("/authors", handlerV1.ListAuthors)
-	
+	// Orders
+	api.POST("/orders", handlerV1.CreateOrder)
+	api.GET("/orders/:id", handlerV1.GetOrderById)
+	api.PUT("/orders/:id", handlerV1.UpdateOrder)
+	api.DELETE("orders/:id", handlerV1.DeleteOrder)
+	api.GET("/orders", handlerV1.ListOrders)
+
 	url := ginSwagger.URL("swagger/doc.json") // The url pointing to API definition
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 
