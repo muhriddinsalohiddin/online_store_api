@@ -19,13 +19,13 @@ type IServiceManager interface {
 
 type serviceManager struct {
 	catalogService pbCatalog.CatalogServiceClient
-	orderService pbOrder.OrderServiceClient
-
+	orderService   pbOrder.OrderServiceClient
 }
 
 func (s *serviceManager) CatalogService() pbCatalog.CatalogServiceClient {
 	return s.catalogService
 }
+
 func (s *serviceManager) OrderService() pbOrder.OrderServiceClient {
 	return s.orderService
 }
@@ -48,7 +48,7 @@ func NewServiceManager(conf *config.Config) (IServiceManager, error) {
 
 	serviceManager := &serviceManager{
 		catalogService: pbCatalog.NewCatalogServiceClient(connCatalog),
-		orderService: pbOrder.NewOrderServiceClient(connOrder),
+		orderService:   pbOrder.NewOrderServiceClient(connOrder),
 	}
 
 	return serviceManager, nil

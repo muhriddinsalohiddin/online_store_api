@@ -1,7 +1,7 @@
 package models
 
 type Author struct {
-	Name                 string   `json:"name"`
+	Name string `json:"name"`
 }
 
 type ListAuthors struct {

@@ -131,7 +131,6 @@ func (h *handlerV1) UpdateBook(c *gin.Context) {
 	c.JSON(http.StatusOK, response)
 }
 
-
 // DeleteBook ...
 // @Summary DeleteBook
 // @Description This API for deleting book
@@ -164,7 +163,6 @@ func (h *handlerV1) DeleteBook(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, response)
-
 }
 
 // ListBooks ...
@@ -201,8 +199,8 @@ func (h *handlerV1) ListBooks(c *gin.Context) {
 
 	response, err := h.serviceManager.CatalogService().ListBooks(
 		ctx, &pb.ListBookReq{
-			Limit: params.Limit,
-			Page:  params.Page,
+			Limit:   params.Limit,
+			Page:    params.Page,
 			Filters: params.Filters,
 		})
 	if err != nil {

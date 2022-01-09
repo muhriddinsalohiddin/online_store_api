@@ -155,7 +155,6 @@ func (h *handlerV1) UpdateAuthor(c *gin.Context) {
 	jspbMarshal.UseProtoNames = true
 
 	err := c.ShouldBindJSON(&body)
-
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),

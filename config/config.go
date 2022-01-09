@@ -12,7 +12,7 @@ type Config struct {
 
 	CatalogServiceHost string
 	CatalogServicePort int
-	
+
 	OrderServiceHost string
 	OrderServicePort int
 

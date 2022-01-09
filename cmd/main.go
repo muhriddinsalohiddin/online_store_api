@@ -1,12 +1,11 @@
 package main
 
-import(
+import (
 	"github.com/muhriddinsalohiddin/online_store_api/api"
 	"github.com/muhriddinsalohiddin/online_store_api/config"
 	"github.com/muhriddinsalohiddin/online_store_api/pkg/logger"
 	"github.com/muhriddinsalohiddin/online_store_api/services"
 )
-
 
 func main() {
 	cfg := config.Load()

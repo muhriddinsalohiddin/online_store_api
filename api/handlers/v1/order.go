@@ -131,7 +131,6 @@ func (h *handlerV1) UpdateOrder(c *gin.Context) {
 	c.JSON(http.StatusOK, response)
 }
 
-
 // DeleteOrder ...
 // @Summary DeleteOrder
 // @Description This API for deleting Order
@@ -164,7 +163,6 @@ func (h *handlerV1) DeleteOrder(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, response)
-
 }
 
 // ListOrders ...
