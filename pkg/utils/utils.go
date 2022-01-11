@@ -12,7 +12,7 @@ type QueryParams struct {
 	Ordering []string
 	Search   string
 	Author   string
-	Category string
+	Category []string
 }
 
 func ParseQueryParams(queryParams map[string][]string) (*QueryParams, []string) {
@@ -58,7 +58,7 @@ func ParseQueryParams(queryParams map[string][]string) (*QueryParams, []string) 
 		}
 
 		if key == "category" {
-			params.Category = value[0]
+			params.Category = value
 		}
 		params.Filters[key] = value[0]
 	}
