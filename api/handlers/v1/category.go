@@ -6,10 +6,11 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"google.golang.org/protobuf/encoding/protojson"
+
 	pb "github.com/muhriddinsalohiddin/online_store_api/genproto/catalog_service"
 	l "github.com/muhriddinsalohiddin/online_store_api/pkg/logger"
 	"github.com/muhriddinsalohiddin/online_store_api/pkg/utils"
-	"google.golang.org/protobuf/encoding/protojson"
 )
 
 // CreateCategory ...

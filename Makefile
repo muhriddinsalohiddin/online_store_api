@@ -16,5 +16,5 @@ swag-gen:
 	swag init -g api/routers.go -o api/docs
 swag-get:
 	go get -u github.com/swaggo/swag/cmd/swag
-update-submodule:
+submodule-update:
 	git submodule update --init --recursive --remote
