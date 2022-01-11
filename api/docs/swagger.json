@@ -937,7 +937,10 @@
                     "type": "string"
                 },
                 "category_id": {
-                    "type": "string"
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "name": {
                     "type": "string"
@@ -1031,6 +1034,12 @@
             "properties": {
                 "author_id": {
                     "type": "string"
+                },
+                "category_id": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "name": {
                     "type": "string"

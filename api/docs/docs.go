@@ -956,7 +956,10 @@ var doc = `{
                     "type": "string"
                 },
                 "category_id": {
-                    "type": "string"
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "name": {
                     "type": "string"
@@ -1050,6 +1053,12 @@ var doc = `{
             "properties": {
                 "author_id": {
                     "type": "string"
+                },
+                "category_id": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "name": {
                     "type": "string"

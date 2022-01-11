@@ -9,7 +9,9 @@ definitions:
       author_id:
         type: string
       category_id:
-        type: string
+        items:
+          type: string
+        type: array
       name:
         type: string
     type: object
@@ -69,6 +71,10 @@ definitions:
     properties:
       author_id:
         type: string
+      category_id:
+        items:
+          type: string
+        type: array
       name:
         type: string
     type: object

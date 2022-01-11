@@ -1,14 +1,15 @@
 package models
 
 type Book struct {
-	Name       string `json:"name"`
-	AuthorId   string `json:"author_id"`
-	CategoryId string `json:"category_id"`
+	Name        string   `json:"name"`
+	AuthorId    string   `json:"author_id"`
+	CategoryIds []string `json:"category_id"`
 }
 
 type UpdateBook struct {
-	Name     string `json:"name"`
-	AuthorId string `json:"author_id"`
+	Name        string   `json:"name"`
+	AuthorId    string   `json:"author_id"`
+	CategoryIds []string `json:"category_id"`
 }
 
 type BookById struct {
